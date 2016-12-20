@@ -1,0 +1,9 @@
+c:\users\mtsirulnikov\documents\visual studio 2013\Projects\Calculation_Ex11\Calculation_Ex11\bin\Debug\Calculation_Ex11.exe.config
+C:\Users\mtsirulnikov\documents\visual studio 2013\Projects\Calculation_Ex11\Calculation_Ex11\bin\Debug\Calculation_Ex11.exe
+C:\Users\mtsirulnikov\documents\visual studio 2013\Projects\Calculation_Ex11\Calculation_Ex11\bin\Debug\Calculation_Ex11.pdb
+C:\Users\mtsirulnikov\documents\visual studio 2013\Projects\Calculation_Ex11\Calculation_Ex11\obj\Debug\Calculation_Ex11.exe
+C:\Users\mtsirulnikov\documents\visual studio 2013\Projects\Calculation_Ex11\Calculation_Ex11\obj\Debug\Calculation_Ex11.pdb
+C:\Users\mtsirulnikov\documents\visual studio 2013\Projects\Calculation_Ex11\Calculation_Ex11\obj\Debug\Calculation_Ex11.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Specter_C#\Calculation_Ex11\Calculation_Ex11\bin\Debug\Calculation_Ex11.exe.config
+C:\Users\user\Desktop\Specter_C#\Calculation_Ex11\Calculation_Ex11\obj\Debug\Calculation_Ex11.exe
+C:\Users\user\Desktop\Specter_C#\Calculation_Ex11\Calculation_Ex11\obj\Debug\Calculation_Ex11.pdb

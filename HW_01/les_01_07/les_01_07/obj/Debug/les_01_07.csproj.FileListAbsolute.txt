@@ -1,0 +1,6 @@
+C:\Users\user\Desktop\Specter_C#\les_01_07\les_01_07\bin\Debug\les_01_07.exe.config
+C:\Users\user\Desktop\Specter_C#\les_01_07\les_01_07\bin\Debug\les_01_07.exe
+C:\Users\user\Desktop\Specter_C#\les_01_07\les_01_07\bin\Debug\les_01_07.pdb
+C:\Users\user\Desktop\Specter_C#\les_01_07\les_01_07\obj\Debug\les_01_07.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Specter_C#\les_01_07\les_01_07\obj\Debug\les_01_07.exe
+C:\Users\user\Desktop\Specter_C#\les_01_07\les_01_07\obj\Debug\les_01_07.pdb

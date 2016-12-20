@@ -1,0 +1,6 @@
+C:\Users\user\Desktop\Specter_C#\HW_03_01\HW_03_01\bin\Debug\HW_03_01.exe.config
+C:\Users\user\Desktop\Specter_C#\HW_03_01\HW_03_01\bin\Debug\HW_03_01.exe
+C:\Users\user\Desktop\Specter_C#\HW_03_01\HW_03_01\bin\Debug\HW_03_01.pdb
+C:\Users\user\Desktop\Specter_C#\HW_03_01\HW_03_01\obj\Debug\HW_03_01.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Specter_C#\HW_03_01\HW_03_01\obj\Debug\HW_03_01.exe
+C:\Users\user\Desktop\Specter_C#\HW_03_01\HW_03_01\obj\Debug\HW_03_01.pdb

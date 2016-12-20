@@ -1,0 +1,12 @@
+C:\Users\user\Desktop\Specter_C#\LabLayout\LabLayout\bin\Debug\LabLayout.exe.config
+C:\Users\user\Desktop\Specter_C#\LabLayout\LabLayout\obj\Debug\LabLayout.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Specter_C#\LabLayout\LabLayout\bin\Debug\LabLayout.exe
+C:\Users\user\Desktop\Specter_C#\LabLayout\LabLayout\bin\Debug\LabLayout.pdb
+C:\Users\user\Desktop\Specter_C#\LabLayout\LabLayout\obj\Debug\LabLayout.exe
+C:\Users\user\Desktop\Specter_C#\LabLayout\LabLayout\obj\Debug\LabLayout.pdb
+C:\Users\user\Desktop\Specter_C#\ClassProjects\LabLayout\LabLayout\bin\Debug\LabLayout.exe.config
+C:\Users\user\Desktop\Specter_C#\ClassProjects\LabLayout\LabLayout\obj\Debug\LabLayout.exe
+C:\Users\user\Desktop\Specter_C#\ClassProjects\LabLayout\LabLayout\obj\Debug\LabLayout.pdb
+C:\Users\user\Desktop\Specter_C#\ClassProjects\LabLayout\LabLayout\bin\Debug\LabLayout.exe
+C:\Users\user\Desktop\Specter_C#\ClassProjects\LabLayout\LabLayout\bin\Debug\LabLayout.pdb
+C:\Users\user\Desktop\Specter_C#\ClassProjects\LabLayout\LabLayout\obj\Debug\LabLayout.csprojResolveAssemblyReference.cache

@@ -1,0 +1,5 @@
+C:\Users\user\Desktop\Specter_C#\Lesson01_HW\lesson01_08\lesson01_08\bin\Debug\lesson01_08.exe.config
+C:\Users\user\Desktop\Specter_C#\Lesson01_HW\lesson01_08\lesson01_08\bin\Debug\lesson01_08.exe
+C:\Users\user\Desktop\Specter_C#\Lesson01_HW\lesson01_08\lesson01_08\bin\Debug\lesson01_08.pdb
+C:\Users\user\Desktop\Specter_C#\Lesson01_HW\lesson01_08\lesson01_08\obj\Debug\lesson01_08.exe
+C:\Users\user\Desktop\Specter_C#\Lesson01_HW\lesson01_08\lesson01_08\obj\Debug\lesson01_08.pdb

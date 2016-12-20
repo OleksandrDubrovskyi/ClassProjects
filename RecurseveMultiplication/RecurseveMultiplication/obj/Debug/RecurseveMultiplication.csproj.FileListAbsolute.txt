@@ -1,0 +1,6 @@
+C:\Users\user\Desktop\Specter_C#\RecurseveMultiplication\RecurseveMultiplication\bin\Debug\RecurseveMultiplication.exe.config
+C:\Users\user\Desktop\Specter_C#\RecurseveMultiplication\RecurseveMultiplication\bin\Debug\RecurseveMultiplication.exe
+C:\Users\user\Desktop\Specter_C#\RecurseveMultiplication\RecurseveMultiplication\bin\Debug\RecurseveMultiplication.pdb
+C:\Users\user\Desktop\Specter_C#\RecurseveMultiplication\RecurseveMultiplication\obj\Debug\RecurseveMultiplication.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Specter_C#\RecurseveMultiplication\RecurseveMultiplication\obj\Debug\RecurseveMultiplication.exe
+C:\Users\user\Desktop\Specter_C#\RecurseveMultiplication\RecurseveMultiplication\obj\Debug\RecurseveMultiplication.pdb

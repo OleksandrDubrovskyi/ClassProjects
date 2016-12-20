@@ -1,0 +1,5 @@
+C:\Users\user\Desktop\Specter_C#\les_01_08\les_01_08\bin\Debug\les_01_08.exe.config
+C:\Users\user\Desktop\Specter_C#\les_01_08\les_01_08\bin\Debug\les_01_08.exe
+C:\Users\user\Desktop\Specter_C#\les_01_08\les_01_08\bin\Debug\les_01_08.pdb
+C:\Users\user\Desktop\Specter_C#\les_01_08\les_01_08\obj\Debug\les_01_08.exe
+C:\Users\user\Desktop\Specter_C#\les_01_08\les_01_08\obj\Debug\les_01_08.pdb
