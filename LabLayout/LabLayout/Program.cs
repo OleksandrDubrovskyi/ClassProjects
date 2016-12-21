@@ -10,7 +10,7 @@ namespace LabLayout
     {
         static void Main(string[] args)
         {
-            Menu.ShowMenu();
+            SuperCalc.Start();
         }
     }
 }
