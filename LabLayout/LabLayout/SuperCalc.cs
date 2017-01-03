@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,85 +9,24 @@ namespace LabLayout
 {
     class SuperCalc
     {
-        public static void Start()
+        /// <summary>
+        /// Methods of this class are used for processing of the data received from
+        /// the CalcMenu.cs class and provide respective calculations and formating.
+        /// </summary>
+
+        public static double Calculate(double x, double y, string sign)
         {
-            Console.WriteLine(ShowMenu());
-
-            string usersChoice = Console.ReadLine();
-
-            while (true)
+            //Division by zero check
+            if (y == 0 && (sign == "/" || sign == "\\"))
             {
-                switch (usersChoice)
-                {
-                    case "1":
-                        SimpleMath();
-                        break;
-                    case "2":
-                        VATCalc();
-                        break;
-                    case "3":
-                        LoanCalc();
-                        break;
-                    case "4":
-                        IncomeTaxCalc();
-                        break;
-                    case "5":
-                        InvestmentCalc();
-                        break;
-                    case "0":
-                        Environment.Exit(0);
-                        break;
-                    default:
-                        {
-                            Console.Clear();
-                            Console.WriteLine("No such item in the menu. Try again.\n");
-                            Console.WriteLine(ShowMenu());
-                        }
-                        break;
-                }
-
-                usersChoice = Console.ReadLine();
-                if (usersChoice == "")
-                {
-                    Console.Clear();
-                    Start();
-                }
+                DivideByZeroException e = new DivideByZeroException();
+                Console.WriteLine(e.Message);
             }
 
-        }
+            //For variables of the type double, the operation of
+            //division by zero is actually defined. That's why we
+            //continue the application even after rasing the exception.
 
-        static void SimpleMath()
-        {
-            Console.Clear();
-            Console.WriteLine("You have chosen a Simple Math Calculator. Please enter your numbers.");
-
-            double firsNumber, secondNumber, result;
-            string mathOp;
-            bool isSign = false;
-
-            firsNumber = ReceiveNumber();
-            mathOp = ReceiveSign();
-
-            while (!isSign)
-            {
-                if (mathOp == "+" || mathOp == "-" || mathOp == "*" || mathOp == "/" || mathOp == "\\")
-                {
-                    isSign = true;
-                }
-                else
-                {
-                    isSign = false;
-                    mathOp = ReceiveSign();
-                }
-            }
-
-            secondNumber = ReceiveNumber();
-            result = Calculate(firsNumber, secondNumber, mathOp);
-            Console.WriteLine(result);
-        }
-
-        static double Calculate(double x, double y, string sign)
-        {
             double result = 0.0;
 
             switch (sign)
@@ -104,9 +44,6 @@ namespace LabLayout
                     break;
 
                 case "/":
-                    result = x / y;
-                    break;
-
                 case "\\":
                     result = x / y;
                     break;
@@ -114,118 +51,130 @@ namespace LabLayout
             return result;
         }
 
-        static double ReceiveNumber()
+        public static decimal IncomeTax(decimal income)
         {
-            Console.WriteLine("\nEnter number");
-            string input = Console.ReadLine();
-            double numberOne = double.Parse(input);
+            //Brutto income in NIS to be taxed with different tax rates.
+            const decimal GRADE1 = 6220.00m;
+            const decimal GRADE2 = 8290.00m;
+            const decimal GRADE3 = 13680.00m;
+            const decimal GRADE4 = 19800.00m;
+            const decimal GRADE5 = 41410.00m;
 
-            return numberOne;
-        }
+            //Income tax rates applied to the brutto income of respective grades.
+            const decimal INC_TAX1 = 0.00m;
+            const decimal INC_TAX2 = 0.14m;
+            const decimal INC_TAX3 = 0.20m;
+            const decimal INC_TAX4 = 0.31m;
+            const decimal INC_TAX5 = 0.35m;
+            const decimal INC_TAX6 = 0.47m; //Applied to the income of over 41410.00 NIS.
 
-        static string ReceiveSign()
-        {
-            Console.WriteLine("\nEnter sign");
-            string sign = Console.ReadLine();
+            //Only income over certain sum is taxed with the rate applied to that grade.
+            //Here are the BASE RATE calculations for the respective grades.
+            //Base rate for GRADE1 and GRADE2 == 0.00 NIS.
+            const decimal GRADE3_BASE = (GRADE2 - GRADE1) * INC_TAX2;
+            const decimal GRADE4_BASE = ((GRADE3 - GRADE2) * INC_TAX3) + GRADE3_BASE;
+            const decimal GRADE5_BASE = ((GRADE4 - GRADE3) * INC_TAX4) + GRADE4_BASE;
+            const decimal GRADE6_BASE = ((GRADE5 - GRADE4) * INC_TAX5) + GRADE5_BASE;
 
-            return sign;
-        }
+            decimal incomeTax = 0.0m;
 
-        static void VATCalc()
-        {
-            Console.Clear();
-            Console.WriteLine("You have chosen a VAT Calculator. Please enter the sum of your purchase.");
-
-            double sum = ReceiveNumber();
-            const double TAX = 0.17;
-
-            double vat = Calculate(sum, TAX, "*");
-
-            Console.WriteLine("Your tax sum is {0}.", vat);
-        }
-
-        static void LoanCalc()
-        {
-            Console.Clear();
-            Console.WriteLine("Hello user!");
-        }
-
-        static void IncomeTaxCalc()
-        {
-            Console.Clear();
-            Console.WriteLine("You have chosen a Income Tax Calculator. Please enter your salary");
-
-            const int GRADE1 = 6220;
-            const int GRADE2 = 8290;
-            const int GRADE3 = 13680;
-            const int GRADE4 = 19800;
-            const int GRADE5 = 41410;
-
-            const double INC_TAX1 = 0.00;
-            const double INC_TAX2 = 0.14;
-            const double INC_TAX3 = 0.20;
-            const double INC_TAX4 = 0.31;
-            const double INC_TAX5 = 0.35;
-            const double INC_TAX6 = 0.47;
-
-            const double GRADE3_TAX = (GRADE2 - GRADE1) * INC_TAX2;
-            const double GRADE4_TAX = ((GRADE3 - GRADE2) * INC_TAX3) + GRADE3_TAX;
-            const double GRADE5_TAX = ((GRADE4 - GRADE3) * INC_TAX4) + GRADE4_TAX;
-            const double GRADE6_TAX = ((GRADE5 - GRADE4) * INC_TAX5) + GRADE5_TAX;
-
-            double salary = ReceiveNumber();
-            double incomeTax;
-
-            if (salary <= GRADE1)
+            if (income <= GRADE1)
             {
                 incomeTax = INC_TAX1;
             }
-            else if (salary <= GRADE2)
+            else if (income <= GRADE2)
             {
-                incomeTax = (salary - GRADE1) * INC_TAX2;
+                incomeTax = (income - GRADE1) * INC_TAX2;
             }
-            else if (salary <= GRADE3)
+            else if (income <= GRADE3)
             {
-                incomeTax = ((salary - GRADE2) * INC_TAX3) + GRADE3_TAX;
+                incomeTax = ((income - GRADE2) * INC_TAX3) + GRADE3_BASE;
             }
-            else if (salary <= GRADE4)
+            else if (income <= GRADE4)
             {
-                incomeTax = ((salary - GRADE3) * INC_TAX4) + GRADE4_TAX;
+                incomeTax = ((income - GRADE3) * INC_TAX4) + GRADE4_BASE;
             }
-            else if (salary <= GRADE5)
+            else if (income <= GRADE5)
             {
-                incomeTax = ((salary - GRADE4) * INC_TAX5) + GRADE5_TAX;
+                incomeTax = ((income - GRADE4) * INC_TAX5) + GRADE5_BASE;
             }
             else
             {
-                incomeTax = ((salary - GRADE5) * INC_TAX6) + GRADE6_TAX;
+                incomeTax = ((income - GRADE5) * INC_TAX6) + GRADE6_BASE;
             }
 
-            Console.WriteLine("You owe {0} shekels to the State of Israel!", incomeTax);
+            return incomeTax;
         }
 
-        static void InvestmentCalc()
+        public static decimal InvestmentLoanCalc(double principal, double rate, int months)
         {
-            Console.Clear();
-            Console.WriteLine("Hello user!");
+            /*  The formula of compound interest we use here:
+            
+                A = P*(1 + r/n)^(n*t)
+            
+                Where:
+                A = the future value of the investment/loan, including interest
+                P = the principal investment amount(the initial deposit or loan amount)
+                r = the annual interest rate(decimal): r/100 in our calculation
+                n = the number of times that interest is compounded per year
+                t = the number of years the money is invested or borrowed for
+            */
+
+            const int INCREMENTS = 12; // the number of times that interest is compounded per year
+            double futureValue; //The sum to pay/recive, inc. principal amount and interest
+            double years = months / 12.0; // The loan/investment period in years
+            double x = (1 + rate / 100 / INCREMENTS); // (1 + r/n) in the formula
+            double y = (INCREMENTS * years); // (n*t) in the formula
+
+            futureValue = principal * (Math.Pow(x, y));
+            decimal interest = (decimal)(futureValue - principal);
+
+            return interest;
         }
 
-        static string ShowMenu()
+        public static double ReceiveNumber()
         {
-            string userMenu =
-                @"Welcome to the Super Calculator v. 0.1
+            double currentNumber = 0.0;
+            string currentInput = "";
+            bool isParsed = false;
 
-Please make your choice:
+            while (!isParsed)
+            {
+                Console.Write("Number: ");
+                currentInput = Console.ReadLine();
+                isParsed = double.TryParse(currentInput, out currentNumber);
+            }
 
-1. Simple Math Calculator.
-2. VAT Calculator.
-3. Loan Calculator.
-4. Income Tax Calculator.
-5. Short Term Investment Calculator.
---------------------------------------
-0. Quit the program.
-";
-            return userMenu;
+            return currentNumber;
         }
+
+        public static string ReceiveSign()
+        {
+            bool isSign = false;
+
+            Console.Write("Sign: ");
+            string sign = Console.ReadLine();
+
+            while (!isSign)
+            {
+                if (sign == "+" || sign == "-" || sign == "*" || sign == "/" || sign == "\\")
+                {
+                    isSign = true;
+                }
+                else
+                {
+                    isSign = false;
+                    sign = ReceiveSign();
+                }
+            }
+            return sign;
+        }
+
+        public static void SumOutput(decimal money)
+        {
+            string output = money.ToString("C", CultureInfo.CreateSpecificCulture("he-IL"));
+            Console.WriteLine("Your interest is {0} !", output);
+        }
+
     }
 }

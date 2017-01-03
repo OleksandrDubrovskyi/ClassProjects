@@ -10,7 +10,8 @@ namespace LabLayout
     {
         static void Main(string[] args)
         {
-            SuperCalc.Start();
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            CalcMenu.Start();
         }
     }
 }
