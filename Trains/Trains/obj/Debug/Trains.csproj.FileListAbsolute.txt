@@ -1,0 +1,6 @@
+C:\Users\user\Desktop\Specter_C#\Trains\Trains\bin\Debug\Trains.exe.config
+C:\Users\user\Desktop\Specter_C#\Trains\Trains\bin\Debug\Trains.exe
+C:\Users\user\Desktop\Specter_C#\Trains\Trains\bin\Debug\Trains.pdb
+C:\Users\user\Desktop\Specter_C#\Trains\Trains\obj\Debug\Trains.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Specter_C#\Trains\Trains\obj\Debug\Trains.exe
+C:\Users\user\Desktop\Specter_C#\Trains\Trains\obj\Debug\Trains.pdb
