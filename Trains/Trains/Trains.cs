@@ -117,8 +117,6 @@ namespace Trains
                 maxNumOfPass = max.maximumPassengers;
             }
 
-            //Console.WriteLine("Maximum number of passengers is {0} in the day # {1}",
-            //                  maxNumOfPass, dayWithMostPassengers);
             return max;
         }
 
