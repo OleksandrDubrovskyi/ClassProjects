@@ -13,6 +13,24 @@ namespace SolarSystem
 
         static void Main(string[] args)
         {
+            Planet Earth = new Planet("Earth");
+            Earth.Mass = 34;
+            Satellite Moon = new Satellite("Moon");
+            Earth.SetSatellites(Moon);
+
+            List<Satellite> EarthSat = new List<Satellite>();
+            EarthSat = Earth.GetSatellites();
+
+
+            foreach (var item in EarthSat)
+            {
+                Console.WriteLine(item.Name);
+            }
+
+            Console.WriteLine(Earth.NumberOfSatellites());
+
+
+
             test[] items = new test[4];
             
             //test first = new test { x = "Jupiter", y = 2 };
