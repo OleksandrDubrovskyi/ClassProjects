@@ -38,6 +38,8 @@ namespace SolarSystem
 
         List<Satellite> satellites = new List<Satellite>();
 
+        static List<Planet> Planets = new List<Planet>();
+
         public Planet (string name, double radius, double mass, double distance)
         {
             Name = name;
@@ -69,6 +71,18 @@ namespace SolarSystem
             return satellites.Count;
         }
 
+        static void MakePlanets()
+        {
+            string[] planets = { "Mercury", "Venus", "Earth", "Mars",
+                                 "Jupiter", "Saturn", "Uranus", "Neptun", "Pluto" };
+
+            for (int i = 0; i < planets.Length; i++)
+            {
+                Planets.Add(new Planet(planets[i]));
+            }
+
+        }
+
     }
 
     class Satellite
@@ -92,5 +106,7 @@ namespace SolarSystem
             Name = name;
         }
     }
+
+    
 
 }
