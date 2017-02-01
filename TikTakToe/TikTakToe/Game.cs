@@ -27,47 +27,56 @@ namespace TikTakToe
             {
                 numberOfTurnsMade ++;
 
-                //Print prompt and receive coordinates of the turn
-                boardCoordinate coordinates = ReceiveCoordinates(currentSign);                
-                gameBoard[coordinates.row, coordinates.column] = currentSign.ToString();
+                string rawCoordinates = "";
+                bool isRightFormat = false; //Format of coordinate imput
+                bool isEmpty = false; //If current cell is empty
 
+                //Print prompt and receive coordinates of the turn
+                while (!isEmpty)
+                {
+                    do
+                    {
+                        rawCoordinates = ReceiveCoordinates(currentSign);
+                        isRightFormat = Verify.CheckCoordinates(rawCoordinates);
+                    }
+                    while (!isRightFormat);
+
+                    boardCoordinate coordinates = ParseCoordinates(rawCoordinates);
+
+                    isEmpty = Verify.IfCellEmpty(gameBoard, coordinates);
+                    if (!isEmpty)
+                    {
+                        Console.WriteLine("\n  This cell is already occupied. Please try again.");
+                    }
+                    else
+                    {
+                        gameBoard[coordinates.row, coordinates.column] = currentSign.ToString();
+                    }
+                    
+                }
+                               
                 Draw.CurrentGameBoard(gameBoard);
                 ChangeCurrentSign();
             }
         }
 
-        static boardCoordinate ReceiveCoordinates(sign currentSign)
-        {
-            string rawCoordinates;
-            boardCoordinate coordinates;
-            bool isRightFormat = false;
-
-            do
-            {
-                Console.Write("\n  Enter coordinates of your move. {0}: ", currentSign);
-                rawCoordinates = Console.ReadLine();
-                isRightFormat = Verify.CheckCoordinates(rawCoordinates);
-            }
-            while (!isRightFormat);
-
-            coordinates = ParseCoordinates(rawCoordinates);
-
-            bool isEmpty = Verify.IfCellEmpty(gameBoard, coordinates);
-
-            if (!isEmpty)
-            {
-                ReceiveCoordinates(currentSign);
-            }
-                        
-            return coordinates;
+        static string ReceiveCoordinates(sign currentSign)
+        {            
+            Console.Write("\n  Enter coordinates of your move. {0}: ", currentSign);
+            string rawCoordinates = Console.ReadLine();
+                       
+            return rawCoordinates;
         }       
 
         static boardCoordinate ParseCoordinates(string rawCoordinates)
         {
             var coordinate = new boardCoordinate();
 
-            coordinate.row = int.Parse(rawCoordinates[0].ToString());
-            coordinate.column = int.Parse(rawCoordinates[2].ToString());
+            const int COORD_X = 0; //First and third positions
+            const int COORD_Y = 2; //of the input string respectively
+
+            coordinate.row = int.Parse(rawCoordinates[COORD_X].ToString());
+            coordinate.column = int.Parse(rawCoordinates[COORD_Y].ToString());
 
             return coordinate;
         }        

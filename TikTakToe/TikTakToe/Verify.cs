@@ -19,11 +19,7 @@ namespace TikTakToe
             {
                 Console.WriteLine("\n  This cell is already occupied. Please try again.");
             }
-            else
-            {
-                isCellEmpty = true;
-            }
-            
+                      
             return isCellEmpty;
         }
 
@@ -42,24 +38,13 @@ namespace TikTakToe
         {
             const int MAX_NUMBER_OF_TURNS = 9; //3 rows by 3 columns
 
-            if (CheckHorizontal(gameBoard))
+            if (
+                CheckHorizontal(gameBoard) ||
+                CheckVertical(gameBoard) ||
+                CheckDiagonals(gameBoard) ||
+                numberOfTurnsMade >= MAX_NUMBER_OF_TURNS
+               )
             {
-                return true;
-            }
-
-            if (CheckVertical(gameBoard))
-            {
-                return true;
-            }
-
-            if (CheckDiagonals(gameBoard))
-            {
-                return true;
-            }
-
-            if (numberOfTurnsMade >= MAX_NUMBER_OF_TURNS)
-            {
-                Console.WriteLine("\n   Game over! Nobody won.\n");
                 return true;
             }
 
@@ -107,6 +92,7 @@ namespace TikTakToe
         {
             bool isGameOver = false;
 
+            //Diagonal from top left to bottom right
             if (gameBoard[0, 0] != " " &&
                 gameBoard[0, 0] == gameBoard[1, 1] &&
                 gameBoard[0, 0] == gameBoard[2, 2])
@@ -115,6 +101,7 @@ namespace TikTakToe
                 isGameOver = true;
             }
 
+            //Diagonal from top right to bottom left
             if (gameBoard[0, 2] != " " &&
                 gameBoard[0, 2] == gameBoard[1, 1] &&
                 gameBoard[0, 2] == gameBoard[2, 0])
