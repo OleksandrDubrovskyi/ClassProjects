@@ -47,8 +47,9 @@ namespace SolarSystem
 
             //Console.WriteLine(filteredNames.First().y);
             foreach (test name in filteredNames2) Console.WriteLine(name.x + " " + name.y);
-
         }
+
+      
 
         void Start()
         {

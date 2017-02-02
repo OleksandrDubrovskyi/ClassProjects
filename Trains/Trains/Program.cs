@@ -12,7 +12,7 @@ namespace Trains
 
         {
 
-            TrainList.Start();
+            Trains.Start();
 
         }
     }
