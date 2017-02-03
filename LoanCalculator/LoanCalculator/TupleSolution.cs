@@ -10,28 +10,31 @@ namespace LoanCalculator
     {
         public static void Start()
         {
-            Console.WriteLine("To check interest rate of your bank depending on period and sum press: 1");
-            Console.WriteLine("To check the best interest rate depending on period and sum press: 2");
+            string usersInput;
 
-            string usersInput = Console.ReadLine();
-            
-            while (usersInput == "1" || usersInput == "2")
+            do
             {
                 Console.WriteLine("To check interest rate of your bank depending on period and sum press: 1");
                 Console.WriteLine("To check the best interest rate depending on period and sum press: 2");
 
                 usersInput = Console.ReadLine();
             }
-            
+            while (usersInput != "1" && usersInput != "2");
+
+
             if (usersInput == "1")
             {
                 ShowInterestRate();
+            }
+            else
+            {
+                ChooseBestRate();
             }
         }
 
 
         //Get the database of banks and their interest rates
-        private static Tuple<string, Period, int, double>[] BankInterests(string[] banks)
+        private static Tuple<string, Period, int, double>[] GetBankInterests(string[] banks)
         {
             string[] temp = new string[4];
             var listOfBanks = new Tuple<string, Period, int, double>[banks.Count()];
@@ -52,9 +55,9 @@ namespace LoanCalculator
 
 
         //Get the best interest rate on your sum over a given period of time
-        private static void BestInterestRate(Period period, int sumRange)
+        private static List<Tuple<string, Period, int, double>> BestInterestRate(Period period, int sumRange)
         {
-            var banks = BankInterests(ListOfBanks.banks);
+            var banks = GetBankInterests(ListOfBanks.banks);
             
             //Best rate(s) for output
             var filtered = new List<Tuple<string, Period, int, double>>();
@@ -80,19 +83,15 @@ namespace LoanCalculator
 
                 }
             }
-            Console.WriteLine(filtered.Count);
 
-            foreach (var item in filtered)
-            {
-                //Item1 = bank name
-                Console.WriteLine("{0} - {1} - {2} - {3}%.", item.Item1, item.Item2, item.Item3, item.Item4);
-            }
+            return filtered;
+           
         }
 
-        //Get the interest rate of a given mank on your sum over a period of time
+        //Get the interest rate of a given bank on your sum over a period of time
         private static double BankInterestRate(string name, Period period, int sumRange)
         {
-            var banks = BankInterests(ListOfBanks.banks);
+            var banks = GetBankInterests(ListOfBanks.banks);
 
             double interest = 0;
             foreach (var item in banks)
@@ -140,7 +139,17 @@ namespace LoanCalculator
 
         private static void ChooseBestRate()
         {
-            throw new NotImplementedException();
+            Period period = GetPeriod();
+            double sum = GetSum();
+            int range = FindSumRange(sum);
+            var interest = BestInterestRate(period, range);
+
+            foreach (var item in interest)
+            {
+                //Item1 = bank name, Item4 = interest rate
+                Console.WriteLine("Bank {0}: deposit of {1} shekels for one {2} gives {3}%.",
+                                    item.Item1, sum, period, item.Item4);
+            }
         }
 
         private static void ShowInterestRate()
@@ -151,20 +160,25 @@ namespace LoanCalculator
             int range = FindSumRange(sum);
             double interest = BankInterestRate(bank, period, range);
 
-            Console.WriteLine("{0} - {1} - {2} - {3}%.", bank, period, sum, interest);
+            Console.WriteLine("Bank {0}: deposit of {1} shekels for one {2} gives {3}%.",
+                bank, sum, period, interest);
         }
 
         private static double GetSum()
         {
-            double sum;
+            double sum = 0;
             string usersInput;
 
-            do
+            while (sum < 5000 || sum > 500000)
             {
-                Console.WriteLine("Please enter your sum in range 5,000 to 500,000 shekels.");
-                usersInput = Console.ReadLine();
+                do
+                {
+                    Console.WriteLine("Please enter your sum in range 5,000 to 500,000 shekels.");
+                    usersInput = Console.ReadLine();
+                }
+                while (!double.TryParse(usersInput, out sum));
             }
-            while (!double.TryParse(usersInput, out sum));
+            
 
             return sum;
         }
@@ -179,7 +193,7 @@ namespace LoanCalculator
                 Console.WriteLine("Choose one of the following: 1, 7, 30");
                 usersChoice = Console.ReadLine().ToLower();
             }
-            while (usersChoice != "1" || usersChoice != "7" || usersChoice != "30");
+            while (usersChoice != "1" && usersChoice != "7" && usersChoice != "30");
 
             Period period = Period.day;
 
@@ -202,7 +216,7 @@ namespace LoanCalculator
                 Console.WriteLine("Choose your bank:\n\nM Mizrahi\nL Leumi\nD Discont\nH Hapoalim");
                 usersChoice = Console.ReadLine().ToLower();
             }
-            while (usersChoice != "m" || usersChoice != "l" || usersChoice != "d" || usersChoice != "h");
+            while (usersChoice != "m" && usersChoice != "l" && usersChoice != "d" && usersChoice != "h");
 
             string bank = "";
 
