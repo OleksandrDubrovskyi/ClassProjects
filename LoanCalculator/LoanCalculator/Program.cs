@@ -10,7 +10,8 @@ namespace LoanCalculator
     {
         static void Main(string[] args)
         {
-            TupleSolution.Start();
+            //TupleSolution.Start();
+            ListSolution.Start();
         }
     }
 }

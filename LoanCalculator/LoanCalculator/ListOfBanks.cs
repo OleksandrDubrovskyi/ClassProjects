@@ -8,6 +8,7 @@ namespace LoanCalculator
 {
     class ListOfBanks
     {
+        //Use random num generator to make 60 interest rates
         public static void GenerateInterests()
         {
             string[] banks = new string[]
@@ -35,9 +36,12 @@ namespace LoanCalculator
             }
         }
 
+        //The previous method takes more than a minute
+        //to generate the list, so we use this variable
+        //in order to make demonstration shorter
         public static string[] banks = new string[]
         {
-            "Mizrahi#1#1#0.04",
+            "Mizrahi#1#1#0.01",
             "Mizrahi#1#2#0.03",
             "Mizrahi#1#3#0.01",
             "Mizrahi#1#4#0.03",

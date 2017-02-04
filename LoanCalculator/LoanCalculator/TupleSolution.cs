@@ -10,17 +10,7 @@ namespace LoanCalculator
     {
         public static void Start()
         {
-            string usersInput;
-
-            do
-            {
-                Console.WriteLine("To check interest rate of your bank depending on period and sum press: 1");
-                Console.WriteLine("To check the best interest rate depending on period and sum press: 2");
-
-                usersInput = Console.ReadLine();
-            }
-            while (usersInput != "1" && usersInput != "2");
-
+            string usersInput = Data.GetUsersChoice();
 
             if (usersInput == "1")
             {
@@ -31,6 +21,8 @@ namespace LoanCalculator
                 ChooseBestRate();
             }
         }
+
+        
 
 
         //Get the database of banks and their interest rates
@@ -112,37 +104,12 @@ namespace LoanCalculator
 
         //HELPER METHODS USED FOR USER DATA INPUT
 
-        private static int FindSumRange(double sum)
-        {
-            if (sum >= 5000 && sum <= 15000)
-            {
-                return 1;
-            }
-            else if (sum <= 25000)
-            {
-                return 2;
-            }
-            else if (sum <= 50000)
-            {
-                return 3;
-            }
-            else if (sum <= 100000)
-            {
-                return 4;
-            }
-            else if (sum <= 500000)
-            {
-                return 5;
-            }
-            else return 0;
-        }
-
         private static void ChooseBestRate()
         {
-            Period period = GetPeriod();
-            double sum = GetSum();
-            int range = FindSumRange(sum);
-            var interest = BestInterestRate(period, range);
+            Period period = Data.GetPeriod();
+            double sum = Data.GetSum();
+            int range = Data.FindSumRange(sum);
+            List<Tuple<string, Period, int, double>> interest = BestInterestRate(period, range);
 
             foreach (var item in interest)
             {
@@ -155,56 +122,13 @@ namespace LoanCalculator
         private static void ShowInterestRate()
         {
             string bank = GetBankName();
-            Period period = GetPeriod();
-            double sum = GetSum();
-            int range = FindSumRange(sum);
+            Period period = Data.GetPeriod();
+            double sum = Data.GetSum();
+            int range = Data.FindSumRange(sum);
             double interest = BankInterestRate(bank, period, range);
 
             Console.WriteLine("Bank {0}: deposit of {1} shekels for one {2} gives {3}%.",
                 bank, sum, period, interest);
-        }
-
-        private static double GetSum()
-        {
-            double sum = 0;
-            string usersInput;
-
-            while (sum < 5000 || sum > 500000)
-            {
-                do
-                {
-                    Console.WriteLine("Please enter your sum in range 5,000 to 500,000 shekels.");
-                    usersInput = Console.ReadLine();
-                }
-                while (!double.TryParse(usersInput, out sum));
-            }
-            
-
-            return sum;
-        }
-
-        private static Period GetPeriod()
-        {
-            string usersChoice;
-
-            do
-            {
-                Console.WriteLine("For how many days do you want to place a deposit?");
-                Console.WriteLine("Choose one of the following: 1, 7, 30");
-                usersChoice = Console.ReadLine().ToLower();
-            }
-            while (usersChoice != "1" && usersChoice != "7" && usersChoice != "30");
-
-            Period period = Period.day;
-
-            switch (usersChoice)
-            {
-                case "1": period = Period.day; break;
-                case "7": period = Period.week; break;
-                case "30": period = Period.month; break;
-            }
-
-            return period;
         }
 
         private static string GetBankName()
