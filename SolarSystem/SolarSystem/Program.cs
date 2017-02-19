@@ -15,8 +15,8 @@ namespace SolarSystem
         {
             Planet Earth = new Planet("Earth");
             Earth.Mass = 34;
-            Satellite Moon = new Satellite("Moon");
-            Earth.SetSatellites(Moon);
+            //Satellite Moon = new Satellite("Moon");
+            //Earth.SetSatellites(Moon);
 
             List<Satellite> EarthSat = new List<Satellite>();
             EarthSat = Earth.GetSatellites();
@@ -47,6 +47,27 @@ namespace SolarSystem
 
             //Console.WriteLine(filteredNames.First().y);
             foreach (test name in filteredNames2) Console.WriteLine(name.x + " " + name.y);
+
+            Moon first = new Moon("First", 20, 34.9);
+            Moon second = new Moon("Second", 24, 35.8);
+            Moon third = new Moon("Third", 11, 5.8);
+
+            List<Moon> Moons = new List<Moon>();
+            Moons.Add(first);
+            Moons.Add(second);
+            Moons.Add(third);
+
+            Moons.Sort();
+
+
+            Console.WriteLine(Moons[Moons.Count-1]);
+            Console.WriteLine("\nLIST OF MOONS:\n");
+            foreach (var item in Moons)
+            {
+                Console.WriteLine(item);
+            }
+
+
         }
 
       
