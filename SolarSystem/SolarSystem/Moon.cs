@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,5 +41,7 @@ namespace SolarSystem
             // String representation.
             return this.Name + ", " + this.Mass.ToString() + ", " + this.Diameter.ToString();
         }
+
     }
+
 }

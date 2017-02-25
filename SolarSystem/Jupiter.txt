@@ -1,0 +1,14 @@
+Io#3660.0#8931900
+Europa#3121.6#4800000
+Ganymede#5262.4#14819000
+Callisto#4820.6#10759000
+Amalthea#250#208
+Himalia#170#670
+Elara#86#87
+Pasiphae#60#30
+Sinope#38#7.5
+Lysithea#36#6.3
+Carme#48#13
+Ananke#28#3
+Leda#16#0.6
+Thebe#116#43

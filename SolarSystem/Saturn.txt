@@ -1,0 +1,17 @@
+Mimas#396.4#37493
+Enceladus#504.2#108022
+Tethys#1062#617449
+Dione#1122.8#1095452
+Rhea#1527.0#2306518
+Titan#5149#134520000
+Hyperion#270#5620
+Iapetus#1468.6#1805635
+Phoebe#213#8292
+Janus#179#1897.5
+Epimetheus#116.2#526.6
+Helene#35.2#24.46
+Telesto#24.8#9.41
+Calypso#21.4#6.3
+Atlas#30.3#6.6
+Prometheus#86.2#159.5
+Pandora#81.4#137.1
