@@ -50,12 +50,16 @@ namespace SolarSystem
             Moons.Sort();
 
 
-            Console.WriteLine(Moons[Moons.Count-1]);
-            Console.WriteLine("\nLIST OF MOONS:\n");
-            foreach (var item in Moons)
+            Planet Neptune = new Planet("Neptune");
+
+            List<Moon> MoonsOfNeptune = Neptune.GetListOfMoons();
+            MoonsOfNeptune.Sort();
+
+            foreach (var item in MoonsOfNeptune)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.ToString());
             }
+
 
 
         }

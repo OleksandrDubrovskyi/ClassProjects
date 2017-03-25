@@ -1,0 +1,12 @@
+Ariel#1157.8#1353
+Umbriel#1169.4#1172
+Titania#1576.8#3527
+Oberon#1522.8#3014
+Miranda#471.6#65.9
+Cordelia#40#0.044
+Ophelia#43#0.053
+Bianca#51#0.092
+Cressida#80#0.34
+Desdemona#64#0.18
+Juliet#94#0.56
+Portia#135#1.70

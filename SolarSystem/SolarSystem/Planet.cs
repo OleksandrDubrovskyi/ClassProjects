@@ -30,7 +30,10 @@ namespace SolarSystem
 
         public List<Moon> GetListOfMoons()
         {
-            string path = "C:/Users/user/Desktop/Specter_C#/ClassProjects/SolarSystem/" + Name + ".txt";
+            string fileName = (Name + ".txt");
+            string path = Path.Combine(Directory.GetCurrentDirectory(), fileName);
+            //string path = "C:/Users/user/Desktop/Specter_C#/ClassProjects/SolarSystem/" + Name + ".txt";
+
             string[] lines = File.ReadAllLines(path);
 
             List<Moon> moons = new List<Moon>();
