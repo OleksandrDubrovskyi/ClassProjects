@@ -29,8 +29,7 @@ namespace BankingCalculator.Controllers
             string sum = calc.sum.ToString();
 
             double output = calc.GetInterest(calc.bankName, calc.period, calc.sum);
-            //string output = string.Format("You are making a deposit of {0} dollars for {1} days at {2} bank",
-                                            //sum, period, bank);
+
             return Content(output.ToString());
         }
     }
