@@ -1,8 +1,9 @@
 ﻿@model BankingCalculator.Models.Calc
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Banking Calculator";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Banking Calculator</h2>
+<h1>Welcome to Banking Calculator!</h1>
 
+<h3>@Html.ActionLink("Calculate your profit!", "Count", "Calc")</h3>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.ModelBinding;
 
 namespace BankingCalculator.Models
 {
@@ -12,13 +13,13 @@ namespace BankingCalculator.Models
         [Display(Name = "Bank")]
         public Bank bankName { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Text Box value Required")]
+        [RegularExpression(@"^\d+\.\d{0,2}$")]
+        [Range(5000, 500000)]
         [Display(Name = "Enter your sum")]
         public double sum { get; set; }
 
         [Required]
-        [RegularExpression(@"^\d+\.\d{0,2}$")]
-        [Range(5000, 500000)]
         [Display(Name = "Period")]
         public Period period { get; set; }
 
@@ -55,7 +56,7 @@ namespace BankingCalculator.Models
             {
                 return 4;
             }
-            else if (sum <= 500000)
+            else if (sum <= 5000000)
             {
                 return 5;
             }

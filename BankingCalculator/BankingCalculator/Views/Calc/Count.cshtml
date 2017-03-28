@@ -7,6 +7,7 @@
 
 <h2>Count Interest</h2>
 
+@{ Html.EnableClientValidation(); }
 @using (Html.BeginForm("Interest", "Calc"))
 {
     <div class="form-group">
@@ -23,8 +24,12 @@
         @Html.RadioButtonFor(m => m.period, "Month") <text>Month</text>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.sum)<text><b>:</b></text>
-        @Html.TextBoxFor(m => m.sum, new { @class = "form-control" })
-    </div>
-    <button type="submit" class="btn btn-primary">Count</button>
-}
+         @Html.LabelFor(m => m.sum)<text><b>:</b></text>
+         @Html.TextBoxFor(m => m.sum, new { @class = "form-control" })          
+     </div>
+
+        <button type="submit" class="btn btn-primary">Count</button>
+    }
+
+    
+

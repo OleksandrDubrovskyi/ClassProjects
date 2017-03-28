@@ -25,12 +25,13 @@ namespace BankingCalculator.Controllers
         public ActionResult Interest(Calc calc)
         {
             string bank = calc.bankName.ToString();
-            string period = ((int)calc.period).ToString();
             string sum = calc.sum.ToString();
 
-            double output = calc.GetInterest(calc.bankName, calc.period, calc.sum);
+            double profit = calc.GetInterest(calc.bankName, calc.period, calc.sum);
 
-            return Content(output.ToString());
+            string output = string.Format("You are going to place {0} NIS for 1 {1} at {2} bank.\nYour profit will be {3} NIS.",
+                                          sum, calc.period, bank, profit);
+            return Content(output);
         }
     }
 }
