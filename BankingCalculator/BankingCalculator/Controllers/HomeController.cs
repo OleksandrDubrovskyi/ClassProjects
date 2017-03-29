@@ -10,7 +10,7 @@ namespace BankingCalculator.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return Redirect("~/Calc");
         }
 
         public ActionResult About()
